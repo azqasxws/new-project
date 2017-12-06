@@ -30,10 +30,11 @@
                 </nav>
                 <div class="content">
                 <!-- 这里是页面内容区 -->
+
+                <router-view></router-view>
                 </div>
         </div>
     </div>
-  <router-view></router-view>
   </div>
 </template>
 
