@@ -1,21 +1,39 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank">Twitter</a></li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li><a href="http://router.vuejs.org/" target="_blank">vue-router</a></li>
-      <li><a href="http://vuex.vuejs.org/" target="_blank">vuex</a></li>
-      <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
-    </ul>
+  <div id='app'>
+  <div class="page-group">
+        <div class="page page-current">
+        <!-- 你的html代码 -->
+                <header class="bar bar-nav">
+                <a class="button button-link button-nav pull-left" href="/demos/card" data-transition='slide-out'>
+                <span class="icon icon-left"></span>
+                返回
+                </a>
+                <h1 class="title">我的生活</h1>
+                </header>
+                <nav class="bar bar-tab">
+                <a class="tab-item active" href="#">
+                <span class="icon icon-home"></span>
+                <span class="tab-label">首页</span>
+                </a>
+                <a class="tab-item" href="#">
+                <span class="icon icon-me"></span>
+                <span class="tab-label">我</span>
+                </a>
+                <a class="tab-item" href="#">
+                <span class="icon icon-star"></span>
+                <span class="tab-label">收藏</span>
+                </a>
+                <a class="tab-item" href="#">
+                <span class="icon icon-settings"></span>
+                <span class="tab-label">设置</span>
+                </a>
+                </nav>
+                <div class="content">
+                <!-- 这里是页面内容区 -->
+                </div>
+        </div>
+    </div>
+  <router-view></router-view>
   </div>
 </template>
 
@@ -30,31 +48,9 @@ export default {
 }
 </script>
 
-<style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-
-h1, h2 {
-  font-weight: normal;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-a {
-  color: #42b983;
-}
+<style>
+@import url("//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css");
+ #app{
+  height: 100%;
+ }
 </style>
