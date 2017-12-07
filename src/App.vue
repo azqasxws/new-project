@@ -5,9 +5,9 @@
         <div class="page page-current">
         <!-- 你的html代码 -->
                 <header class="bar bar-nav">
-                  <h1 class="title">首页</h1>
+                  <h1 class="title">{{toolbar}}</h1>
                 </header>
-                <nav class="bar bar-tab">
+                <nav class="bar bar-tab" v-if ="toolbar!='登录'">
                   <a class="tab-item active" @click="home">
                     <span class="icon icon-home"></span>
                     <span class="tab-label">首页</span>
@@ -41,12 +41,13 @@ export default {
   name: 'app',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'Welcome to Your Vue.js App',
+      toolbar: null
     }
   },
   methods:{
         home : function(){
-                this.$router.push({path: '/home'})
+              this.$router.push({path: '/home'})
             },
         mine : function(){
               this.$router.push({path:'/mine'}) 
@@ -55,7 +56,10 @@ export default {
               this.$router.push({path:'/cart'}) 
         },
         barcode:function(){
-              this.$router.push({path:'/barcode'}) 
+              this.$router.push({path:'/login'}) 
+        },
+        initToolbar:function(_config){
+              this.toolbar = _config;
         }
   }
 }
@@ -63,9 +67,6 @@ export default {
 </script>
 
 <style>
-@import url("./assets/css/swiper.min.css");
 @import url("//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css");
-.bar{
-  background: #fff;
-}
+  
 </style>

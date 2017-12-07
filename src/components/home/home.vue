@@ -1,13 +1,10 @@
 <template>
-
     <div class="content">
-    <div class="swiper-container">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="../../assets/img/img1.jpg" width="100%" /></div>
-        <div class="swiper-slide"><img src="../../assets/img/img2.jpg" width="100%" /></div>
-        <div class="swiper-slide"><img src="../../assets/img/img3.jpg" width="100%" /></div>
-      </div>
-    </div>
+      <swiper :options="swiperOption" ref="mySwiper" >
+        
+          <div class="swiper-slide" v-for='item in dataset'><img :src="item" width="100%" /></div>
+          <div class="swiper-pagination" slot="pagination"></div>
+      </swiper>
       <div class="list-block">
         <ul>
           <li class="item-content">
@@ -28,17 +25,56 @@
       </div>
     </div>
 </template>
+
 <script type="text/javascript">
+    import { swiper, swiperSlide } from 'vue-awesome-swiper'
     export default{
+        name: 'carrousel',
+        components: {
+          swiper,
+          swiperSlide,
+        },
+        //components要放上面
         data(){
             return{
-
-            }
+                dataset : ["src/assets/img/img1.jpg","src/assets/img/img2.jpg","src/assets/img/img3.jpg"],
+                //绝对路径
+                toolbar:'首页',
+                swiperOption: { 
+                autoplay:true, 
+                //是一个组件自有属性，如果notNextTick设置为true，组件则不会通过NextTick来实例化swiper，也就意味着你可以在第一时间获取到swiper对象，假如你需要刚加载遍使用获取swiper对象来做什么事，那么这个属性一定要是true  
+                notNextTick: true,  
+                pagination: '.swiper-pagination',  
+                slidesPerView: 'auto',  
+                centeredSlides: true,  
+                paginationClickable: true,  
+                spaceBetween: 30,  
+                    onSlideChangeEnd: swiper => {  
+                        //这个位置放swiper的回调方法  
+                        this.page = swiper.realIndex+1;  
+                        this.index = swiper.realIndex;  
+                    }  
+                }  
+          }
         },
-        methods:{
-            
+        computed: {  
+  
+            swiper() {  
+              return this.$refs.mySwiper.swiper;  
+            }  
+        },
+        mounted:function(){
+            this.$parent.initToolbar(this.toolbar);
+            console.log("每次切换都会触发我");
 
-        }
+        },
+
+
     }
 
 </script>
+<style type="text/css">
+@import url("../../assets/css/swiper.min.css");
+
+
+</style>

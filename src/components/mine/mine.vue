@@ -25,15 +25,16 @@
     export default{
         data(){
             return{
-
+              toolbar:'我的'
             }
         },
         methods:{
             
 
+        },
+        mounted:function(){
+            this.$parent.initToolbar(this.toolbar)
         }
-
-
     }
 
 </script>

@@ -10,13 +10,17 @@
         data: function(){
             return {
                 username:"" ,
-                password:""
+                password:"",
+                toolbar:'登录'
             }
         },
         methods:{
             login:function(){
                 console.log(this);
             }
+        },
+        mounted:function(){
+            this.$parent.initToolbar(this.toolbar)
         }
     }
 </script>
