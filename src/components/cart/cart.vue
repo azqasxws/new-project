@@ -1,19 +1,20 @@
 <template>
-    <div class="content ">
-        <h1>首页</h1>
+    <div class="content">
+        <h1>购物车</h1>
     </div>
 </template>
 <script type="text/javascript">
     export default{
         data(){
             return{
-              toolbar:'首页'
+              toolbar:'购物车'
             }
         },
         methods:{
             
-        },
-         mounted:function(){
+
+        },         
+        mounted:function(){
             this.$parent.initToolbar(this.toolbar);
         }
 
