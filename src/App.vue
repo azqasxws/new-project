@@ -1,5 +1,6 @@
 <template>
   <div id='app'>
+
     <div class="page-group">
         <div class="page page-current">
         <!-- 你的html代码 -->
@@ -35,6 +36,7 @@
 </template>
 
 <script>
+
 export default {
   name: 'app',
   data () {
@@ -57,9 +59,11 @@ export default {
         }
   }
 }
+
 </script>
 
 <style>
+@import url("./assets/css/swiper.min.css");
 @import url("//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css");
 .bar{
   background: #fff;

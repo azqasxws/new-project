@@ -1,5 +1,13 @@
 <template>
+
     <div class="content">
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="../../assets/img/img1.jpg" width="100%" /></div>
+        <div class="swiper-slide"><img src="../../assets/img/img2.jpg" width="100%" /></div>
+        <div class="swiper-slide"><img src="../../assets/img/img3.jpg" width="100%" /></div>
+      </div>
+    </div>
       <div class="list-block">
         <ul>
           <li class="item-content">
@@ -31,8 +39,6 @@
             
 
         }
-
-
     }
 
 </script>
