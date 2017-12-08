@@ -25,16 +25,26 @@
     export default{
         data(){
             return{
+<<<<<<< HEAD
               toolbar:'我的'
+=======
+
+>>>>>>> 189c11f860cca52a91b44b0417ef5e3a934d2976
             }
         },
         methods:{
             
 
+<<<<<<< HEAD
         },
         mounted:function(){
             this.$parent.initToolbar(this.toolbar)
         }
+=======
+        }
+
+
+>>>>>>> 189c11f860cca52a91b44b0417ef5e3a934d2976
     }
 
 </script>

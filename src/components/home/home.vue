@@ -1,10 +1,13 @@
 <template>
     <div class="content">
+<<<<<<< HEAD
       <swiper :options="swiperOption" ref="mySwiper" >
         
           <div class="swiper-slide" v-for='item in dataset'><img :src="item" width="100%" /></div>
           <div class="swiper-pagination" slot="pagination"></div>
       </swiper>
+=======
+>>>>>>> 189c11f860cca52a91b44b0417ef5e3a934d2976
       <div class="list-block">
         <ul>
           <li class="item-content">
@@ -25,6 +28,7 @@
       </div>
     </div>
 </template>
+<<<<<<< HEAD
 
 <script type="text/javascript">
     import { swiper, swiperSlide } from 'vue-awesome-swiper'
@@ -78,3 +82,21 @@
 
 
 </style>
+=======
+<script type="text/javascript">
+    export default{
+        data(){
+            return{
+
+            }
+        },
+        methods:{
+            
+
+        }
+
+
+    }
+
+</script>
+>>>>>>> 189c11f860cca52a91b44b0417ef5e3a934d2976
