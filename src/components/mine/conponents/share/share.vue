@@ -7,11 +7,23 @@
               </div>
         </div>
         <div class="content-block">
-              <p><a class="create-actions">选择操作</a></p>
+              <p><a class="open-about">选择操作</a></p>
         </div>
-    </div>
-</template>
-
-<script type="text/javascript">
         
+    </div>
+
+</template>
+<script type="text/javascript">
+
+    export default{
+        data(){
+            return{
+              toolbar:'分享给好友'
+            }
+        },
+        mounted:function(){
+            this.$parent.initToolbar(this.toolbar);
+        }
+    }
+
 </script>
