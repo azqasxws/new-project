@@ -4,14 +4,14 @@
         <div class="page page-current">
         <!-- 你的html代码 -->
                 <header class="bar bar-nav">
-                  <h1 class="title">首页</h1>
+                  <h1 class="title">{{toolbar}}</h1>
                 </header>
-                <nav class="bar bar-tab">
+                <nav class="bar bar-tab" v-if="toolbar!='登录'">
                   <a class="tab-item active" @click="home">
                     <span class="icon icon-home"></span>
                     <span class="tab-label">首页</span>
                   </a>
-                  <a class="tab-item" @click="barcode">
+                  <a class="tab-item" @click="login">
                     <span class="icon icon-star"></span>
                     <span class="tab-label">扫码购</span>
                   </a>
@@ -25,8 +25,10 @@
                   </a>
                 </nav>
                 <div class="content">
+
                 <!-- 这里是页面内容区 -->
                   <router-view></router-view>
+
                 </div>
         </div>
       </div>
@@ -35,11 +37,13 @@
 </template>
 
 <script>
+
 export default {
   name: 'app',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'Welcome to Your Vue.js App',
+      toolbar:null
     }
   },
   methods:{
@@ -54,7 +58,19 @@ export default {
         },
         barcode:function(){
               this.$router.push({path:'/barcode'}) 
+        },
+        login:function(){
+              this.$router.push({path:'/login'}) 
+        },
+        register: function(){
+              this.$router.push({path:'/register'})
+        },
+        initToolbar:function(_config){
+          this.toolbar = _config;
         }
+  },
+  befireCreate:function(){
+    console.log(666);
   }
 }
 </script>
