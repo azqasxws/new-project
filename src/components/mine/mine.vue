@@ -32,7 +32,7 @@
             </div>
           </li><li class="item-content">
             <div class="item-inner">
-              <div class="item-title"><span class="icon icon-gift"></span> 我的优惠券</div>
+              <div class="item-title"><span class="icon icon-gift"></span> 优惠券</div>
               <span class="icon icon-right"></span>
             </div>
           </li><li class="item-content">
