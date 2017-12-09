@@ -4,9 +4,9 @@
         <div class="page page-current">
         <!-- 你的html代码 -->
                 <header class="bar bar-nav">
-                  <h1 class="title">{{toolbar}}</h1>
+                  <h1 class="title">{{toolbar}}</h1>                  
                 </header>
-                <nav class="bar bar-tab" >
+                <nav class="bar bar-tab" v-if="unShows.indexOf(toolbar)<0">
                   <a class="tab-item active" @click="home">
                     <span class="icon icon-home"></span>
                     <span class="tab-label">首页</span>
@@ -43,7 +43,8 @@ export default {
   data () {
     return {
       msg: 'Welcome to Your Vue.js App',
-      toolbar:null
+      toolbar:null,
+      unShows:['登录','电子发票','分享给好友','用户反馈','优惠券','关于我们','设置']
     }
   },
   methods:{
@@ -70,7 +71,7 @@ export default {
         }
   },
   // beforeUpdate:function(){
-  //  this.home();
+  //  this.$router.push({path: '/home'})
   // }
 }
 </script>

@@ -11,7 +11,7 @@
     export default{
         data(){
             return{
-              toolbar:'电子发票'
+              toolbar:'关于我们'
             }
         },
         methods:{

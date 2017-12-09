@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-11-16 20:36:53
  * @Last Modified by:   Marte
- * @Last Modified time: 2017-12-09 17:41:04
+ * @Last Modified time: 2017-12-09 17:55:51
  */
     header('Access-Control-Allow-Origin:*');
     $servername='10.3.135.29';
@@ -29,16 +29,18 @@
     // 密码md5加密
     $password = md5($password);
 
-    $sql = "select * from memberlist where username='$username' and password='$password'";
+    $sql = "select * from memberlist where username ='$username'";
 
+    mysqli_query($conn,"UPDATE memberlist SET password='$password' WHERE username='$username'");
 
     // 获取查询结果
     $result = $conn->query($sql);
 
-    $row = $result->fetch_row();
+    $row = $result->fetch_all(MYSQLI_ASSOC);
 
     if($row){
-        echo 'ok';
+        
+        echo json_encode($row,JSON_UNESCAPED_UNICODE);
     }else{
         echo 'fail';
     }

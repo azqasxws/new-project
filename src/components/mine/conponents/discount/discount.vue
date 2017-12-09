@@ -5,13 +5,12 @@
         </div>
     </div>
 </template>
-
 <script type="text/javascript">
 
     export default{
         data(){
             return{
-              toolbar:'电子发票'
+              toolbar:'优惠券'
             }
         },
         methods:{
