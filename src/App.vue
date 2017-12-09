@@ -7,12 +7,14 @@
                   <h1 class="title">{{toolbar}}</h1>
                   
                 </header>
+
                 <nav class="bar bar-tab" v-if="unShows.indexOf(toolbar)<0">
+
                   <a class="tab-item active" @click="home">
                     <span class="icon icon-home"></span>
                     <span class="tab-label">首页</span>
                   </a>
-                  <a class="tab-item" @click="login">
+                  <a class="tab-item" @click="barcode">
                     <span class="icon icon-star"></span>
                     <span class="tab-label">扫码购</span>
                   </a>
@@ -71,15 +73,16 @@ export default {
           this.toolbar = _config;
         }
   },
-  befireCreate:function(){
-    console.log(666);
-  }
+  // beforeUpdate:function(){
+  //  this.home();
+  // }
 }
 </script>
 
 <style>
 @import url("//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css");
 .bar{
-  background: #fff;
+  border-top: 1px solid #fff;
+ 
 }
 </style>
