@@ -104,10 +104,10 @@
                   }else{
                       this.home();
                       this.token = jwt.sign({username:this.username}, 'abc', {
-                            expiresIn: 999
+                            expiresIn:86400
                             }
                       );                    
-                      $.cookie("token", this.token, { path: "/", expiress: 7 ,sucue:true});
+                      $.cookie("token", this.token, { path: "/", expiress:1 ,sucue:true});
                       
                   }
                 })

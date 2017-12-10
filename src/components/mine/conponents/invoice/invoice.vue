@@ -1,6 +1,8 @@
 <template>
     <div class="content">
-        你还没有电子发票哦
+        <div class="content-block">
+            <p><a href="#" class="button button-fill button-warning " @click="mine">返回</a></p>
+        </div>
     </div>
 </template>
 
@@ -10,6 +12,11 @@
         data(){
             return{
               toolbar:'电子发票'
+            }
+        },
+        methods:{
+            mine : function(){
+                  this.$router.push({path:'/mine'}) 
             }
         },
         mounted:function(){

@@ -64,7 +64,9 @@
             </li>
           </ul>
         </div>
-        
+        <div class="content-block">
+            <p><a href="#" class="button button-fill button-warning " @click="setting">返回</a></p>
+        </div>         
     </div>
 </template>
 <script type="text/javascript">
@@ -78,5 +80,21 @@
                 $item_m.slideDown(200);
             }
         })
-    })
+    });
+    import axios from 'axios';
+    import qs from 'qs';
+    import jwt from 'jsonwebtoken';
+    export default{
+      data(){
+        return {
+
+        }
+      },
+      methods:{
+            setting(){
+                this.$router.push({path: '/setting'})
+            },
+      }
+
+    }    
 </script>

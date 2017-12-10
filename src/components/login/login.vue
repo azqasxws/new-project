@@ -50,6 +50,9 @@
         },
         methods:{
             login:function(){
+              if(!password){
+                return;
+              }
                 axios({
                     url: 'http://localhost:777/php/login.php',
                     method: 'post',
@@ -60,6 +63,11 @@
                 }).then(res => {
                   if(res.data=="ok"){
                     this.home();
+                    this.token = jwt.sign({username:this.username}, 'abc', {
+                            expiresIn:86400
+                            }
+                      );                    
+                    $.cookie("token", this.token, { path: "/", expiress:1 ,sucue:true});
                   }else{
                     alert('密码和账号有误');
                   }

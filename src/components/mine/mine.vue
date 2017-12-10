@@ -3,7 +3,7 @@
     <div class="content">
       <div style="background:#fff">
         <span>用户</span><br />
-        <i>12345678911</i>
+        <i>{{name}}</i>
       </div>
 
       <div class="list-block" style="margin-top:10px;">
@@ -57,11 +57,17 @@
     </div>
 </template>
 <script type="text/javascript">
-    import './mine.scss'
+
+    import axios from 'axios';
+    import qs from 'qs';
+    import jwt from 'jsonwebtoken';
+
     export default{
         data(){
             return{
-              toolbar:'我的'
+              toolbar:'我的',
+              name:'',
+              token:''
             }
         },
         methods:{
@@ -86,6 +92,20 @@
         },
         mounted:function(){
             this.$parent.initToolbar(this.toolbar);
+        },
+        beforeCreate:function(){    
+            if($.cookie('token')){
+               this.token=$.cookie('token'); 
+               jwt.verify(this.token,'abc',function(error,result){
+                 name=result.username;
+                 console.log(name);
+                 console.log(result.username);
+                
+                });           
+            }else{
+               this.$router.push({path:'/login'}); 
+            }
+                
         }
     }
 

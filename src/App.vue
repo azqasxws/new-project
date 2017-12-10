@@ -4,11 +4,9 @@
         <div class="page page-current">
         <!-- 你的html代码 -->
                 <header class="bar bar-nav">
-
-                  <h1 class="title">{{toolbar}}</h1>
-                  
+                  <h1 class="title">{{toolbar}}</h1>                  
                 </header>
-
+1
                 <nav class="bar bar-tab" v-if="unShows.indexOf(toolbar)<0">
                   <a class="tab-item active" @click="home">
                     <span class="icon icon-home"></span>
@@ -53,7 +51,6 @@ export default {
   },
   methods:{
         home : function(){
-
               this.$router.push({path: '/home'})
 
             },
@@ -71,7 +68,7 @@ export default {
         }
   },
   // beforeUpdate:function(){
-  //  this.home();
+  //  this.$router.push({path: '/home'})
   // }
 }
 

@@ -44,6 +44,9 @@
             </li>
           </ul>
         </div>
+        <div class="content-block">
+            <p><a href="#" class="button button-fill button-warning " @click="mine">返回</a></p>
+        </div>        
     </div>
 </template>
 
@@ -62,7 +65,7 @@
         methods:{
             exit(){
                 if(confirm("确认退出?")){
-                    window.localStorage.removeItem('token')
+                    $.cookie("token1",null);
                 }else{
                     return
                 }
@@ -72,7 +75,10 @@
             },
             changePwd(){
                 this.$router.push({path: '/changePwd'})
-            }
+            },
+            mine(){
+                  this.$router.push({path:'/mine'}) 
+            }            
         }
     }
 

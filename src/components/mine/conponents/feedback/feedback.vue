@@ -4,9 +4,8 @@
         <textarea placeholder="亲,你在使用中遇到什么问题,或者有什么建议,欢迎您提供给我们"></textarea>
             
         <div class="content-block">
-            <div class="row">
-                <div class="col-100"><button class="button button-big button-fill button-success" disabled="true">提交</button></div>
-            </div>
+            <p><a href="#" class="button button-fill button-success" >提交</a></p>
+            <p><a href="#" class="button button-fill button-warning " @click="mine">返回</a></p>
         </div>
     </div>
 </template>
@@ -17,6 +16,11 @@
         data(){
             return{
               toolbar:'用户反馈'
+            }
+        },
+        methods:{
+            mine : function(){
+                  this.$router.push({path:'/mine'}) 
             }
         },
         mounted:function(){

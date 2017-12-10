@@ -14,30 +14,35 @@
             token:''}
         },
         methods: {
-        login:function(){
-              this.$router.push({path:'/login'}) 
-        }
+            login:function(){
+                  this.$router.push({path:'/login'}) 
+            }
         },
-        beforeCreate:function(){    
+        beforeCreate:function(){
+            var $this=this
             if($.cookie('token')){
-               this.token=$.cookie('token'); console.log(this.token);
-               // jwt.verify(this.token,'abc'function(err,decode){
-               //  console.log(decode);
-               // })
-                
+               this.token=$.cookie('token'); 
+               jwt.verify(this.token,'abc',function(error,result){
+
                     axios({
-                        url: 'http://localhost:777/php/login.php',
-                        method: 'post',
-                        data: qs.stringify({username: this.token}),
-                        headers: {
-                            'Content-Type': 'application/x-www-form-urlencoded'
-                        }
+                            url: 'http://localhost:777/php/login.php',
+                            method: 'post',
+                            data: qs.stringify({username:result.username}),
+                            headers: {
+                                'Content-Type': 'application/x-www-form-urlencoded'
+                            }
                     }).then(res => {
-                        
-                    });
-               
+                                
+                                    if(res.data=="ok"){
+                                        console.log(res.data);
+                                    }else{
+                                       
+                                        $this.$router.push({path:'/login'}); 
+                                    }
+                            });
+                });
             }else{
-                this.login();
+               this.$router.push({path:'/login'}); 
             }
                 
         }
