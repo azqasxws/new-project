@@ -7,8 +7,10 @@
     import jwt from 'jsonwebtoken';
     export default{
         data:function(){
-            return {toolbar:null,
-            token:''}
+            return {
+                toolbar:null,
+                token:''
+            }
         },
         methods: {
             login:function(){
