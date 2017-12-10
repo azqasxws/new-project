@@ -3,16 +3,16 @@
  * @Author: Marte
  * @Date:   2017-11-16 20:36:53
  * @Last Modified by:   Marte
- * @Last Modified time: 2017-12-08 18:04:13
+ * @Last Modified time: 2017-12-10 13:01:00
  */
     header('Access-Control-Allow-Origin:*');
-    $servername='localhost';
+    $servername='10.3.135.29';
     $username='root';
     $password='';
     $database='mydatabase';
 
     //连接注册登录数据库
-    $conn=new mysqli($servername,$username,$password,$database);
+    $conn = new mysqli($servername,$username,$password,$database);
 
     //检测连接
     if($conn->connect_error){
@@ -30,8 +30,6 @@
     //查询用户名是否存在
     $sql="select username from memberlist where username='$username'";
     $result = $conn->query($sql);
-    
-    echo json_encode($result, JSON_UNESCAPED_UNICODE);
     if($result->num_rows>0){ 
         // 释放查询内存(销毁)
         $result->free();

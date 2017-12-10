@@ -92,15 +92,14 @@
                 alert('请输入密码');
               }else  if(this.password===this.password2){
                 axios({
-                    url: 'http://10.3.135.29:777/php/register.php',
+                    url: 'http://localhost:777/php/register.php',
                     method: 'post',
                     data: qs.stringify({username: this.username, password: this.password}),
                     headers: {
                         'Content-Type': 'application/x-www-form-urlencoded'
                     }
                 }).then(res => {
-                  console.log((res.data).slice(-4));
-                  if((res.data).slice(-4)=="fail"){
+                  if(res.data){
                     alert('用户名已注册');
                   }else{
                       this.home();

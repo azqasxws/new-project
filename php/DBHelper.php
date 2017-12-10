@@ -2,7 +2,7 @@
 //http://www.runoob.com/php/php-mysql-select.html
     function connect_oop(){
         // 配置参数
-        $servername = 'localhost';
+        $servername = '10.3.135.29';
         $username = 'root';
         $password = '';
         $database = 'mydatabase';

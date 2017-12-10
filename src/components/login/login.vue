@@ -50,9 +50,8 @@
         },
         methods:{
             login:function(){
-                
                 axios({
-                    url: 'http://10.3.135.29:777/php/login.php',
+                    url: 'http://localhost:777/php/login.php',
                     method: 'post',
                     data: qs.stringify({username: this.username, password: this.password}),
                     headers: {

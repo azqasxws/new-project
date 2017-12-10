@@ -1,9 +1,16 @@
 <template>
     <div class="content">
-        <h1>购物车</h1>
+      <div class="list-block">
+        <span class="icon icon-cart"></span>
+        <p></p>
+        <p><a href="#" class="button button-fill button-danger ">去购物 </a></p>
+      </div>
     </div>
+    
 </template>
 <script type="text/javascript">
+  import "./cart.scss";
+
     export default{
         data(){
             return{
@@ -11,8 +18,6 @@
             }
         },
         methods:{
-            
-
         },         
         mounted:function(){
             this.$parent.initToolbar(this.toolbar);

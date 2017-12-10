@@ -28,7 +28,7 @@
             </li>
             <li class="item-content" @click="feedback">
               <div class="item-inner">
-                <div class="item-title"> <span class="icon icon-edit"></span> 用户反馈</div>
+                <div class="item-title"><span class="icon icon-edit"></span> 用户反馈</div>
                 <span class="icon icon-right"></span>
               </div>
             </li>
@@ -50,13 +50,14 @@
                 <span class="icon icon-right"></span>
               </div>
             </li>
+
           </ul>
         </div>
       </div>
     </div>
 </template>
 <script type="text/javascript">
-
+    import './mine.scss'
     export default{
         data(){
             return{
@@ -86,7 +87,6 @@
         mounted:function(){
             this.$parent.initToolbar(this.toolbar);
         }
-
     }
 
 </script>
