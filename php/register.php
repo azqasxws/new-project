@@ -3,10 +3,12 @@
  * @Author: Marte
  * @Date:   2017-11-16 20:36:53
  * @Last Modified by:   Marte
- * @Last Modified time: 2017-12-11 09:50:32
+ * @Last Modified time: 2017-12-11 11:24:07
  */
 
     include "./public.php";   
+   
+
 
     // 接受前端数据
     $username = isset($_POST['username']) ? $_POST['username'] :'';
@@ -20,6 +22,7 @@
     if($result->num_rows>0){ 
         // 释放查询内存(销毁)
         $result->free();
+
         // 用户名已经被占用
         echo "fail";
     }else{

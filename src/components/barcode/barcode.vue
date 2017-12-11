@@ -9,15 +9,13 @@
                         <div class="item-inner">
                             <div class="item-title label">商品条码</div>
                             <div class="item-input">
-                              <input type="text" placeholder="请扫描商品条码" v-model="barcode">
+                              <input type="text" placeholder="请扫描商品条码" v-model="barcode" id="barcode">
                             </div>
                         </div>
                     </div>
                 </li>
             </ul>
-        </div>   
-            
-
+        </div>  
     </div>
 </template>
 
@@ -30,7 +28,8 @@
     export default{
         data:function(){
             return {
-                toolbar:null,
+                toolbar:'扫描',
+                backrouter:'/home',
                 token:'',
                 barcode:''
             }
@@ -40,7 +39,11 @@
                 this.$router.push({path:'/login'}) 
             }
         },
+        mounted:function(){
+            this.$parent.initToolbar(this.toolbar,this.backrouter);
+        },
         beforeCreate:function(){
+
             var $this=this
             if($.cookie('token')){
                this.token=$.cookie('token'); 
@@ -67,10 +70,8 @@
                this.$router.push({path:'/login'}); 
             } 
         }
-
-
-
     }
+    
 </script>
 
 

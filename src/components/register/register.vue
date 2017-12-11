@@ -103,13 +103,13 @@
                   if(res.data){
                     alert('用户名已注册');
                   }else{
-                      this.home();
+                      
                       this.token = jwt.sign({username:this.username}, 'abc', {
                             expiresIn:86400
                             }
                       );                    
                       $.cookie("token", this.token, { path: "/", expiress:1 ,sucue:true});
-                      
+                      this.home();
                   }
                 })
               

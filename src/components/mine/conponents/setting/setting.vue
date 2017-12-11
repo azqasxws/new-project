@@ -61,8 +61,6 @@
         methods:{
           mine:function(){
             this.$router.push({path:'/mine'});
-
-
           }
         },
         mounted:function(){
