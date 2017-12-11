@@ -92,7 +92,6 @@
         mounted:function(){
             this.$parent.initToolbar(this.toolbar);
             if($.cookie('token')){
-              console.log(66);
                this.token=$.cookie('token'); 
                jwt.verify(this.token,'abc',function(error,result){
                 $('#name').html(result.username)

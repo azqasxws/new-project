@@ -13,12 +13,12 @@
     // 密码md5加密
     $password = md5($password);
 
-    if(!$password){
+    if($password!=''){
         $sql = "select * from memberlist where username='$username' and password='$password'"; 
     }else{
         $sql = "select * from memberlist where username='$username'"; 
     }
-    
+
     // 获取查询结果
     $result = $conn->query($sql);
 

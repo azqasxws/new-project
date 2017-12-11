@@ -19,6 +19,7 @@ import changePwdcomponent from '../components/mine/conponents/setting/conponents
 
 import barcodecomponent from '../components/barcode/barcode.vue';
 import registercomponent from '../components/register/register.vue';
+import ordercomponent from '../components/cart/order/order.vue';
 
 
 
@@ -88,7 +89,11 @@ var router  = new Vrouter({
         },
         {   path:'/changePwd',
             component: changePwdcomponent
-        }
+        },
+        {
+            path:'/order',
+            component: ordercomponent
+        },
     ]
 })
 

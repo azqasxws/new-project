@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-11-16 20:36:53
  * @Last Modified by:   Marte
- * @Last Modified time: 2017-12-11 11:24:07
+ * @Last Modified time: 2017-12-11 19:05:17
  */
 
     include "./public.php";   
@@ -38,8 +38,8 @@
             $password=md5($password);
 
             $sql="insert into memberlist(username,password) value('$username','$password')";
-
             $result = $conn->query($sql);
+            
             if ($result) {
                 // 写入成功
                 echo "ok";

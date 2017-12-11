@@ -99,7 +99,6 @@
                         'Content-Type': 'application/x-www-form-urlencoded'
                     }
                 }).then(res => {
-                  console.log(res.data)
                   if(res.data){
                     alert('用户名已注册');
                   }else{

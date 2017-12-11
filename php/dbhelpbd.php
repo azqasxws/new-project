@@ -36,20 +36,21 @@
 
     //初始化连接对象方法
     function connect(){
-        $servername = "localhost";//
-        $username = "root";
-        $password = "";
-        $dbname = 'mydatabase'; 
+        $servername = '10.3.135.29';
+        $username = 'root';
+        $password = '';
+        $database = 'mydatabase';
         //初始化连接，返回一个连接对象(包含所连接数据库的信息)
-        $con = mysqli_connect($servername,$username,$password,$dbname); 
+        $conn = mysqli_connect($servername,$username,$password,$database); 
 
         //获取连接对象的错误信息
-        if (mysqli_connect_error($con)) 
+        if (mysqli_connect_error($conn)) 
         { 
             echo "连接 MySQL 失败: " . mysqli_connect_error();
             return null;
         }
-        return $con;
+        $conn->set_charset('utf8');
+        return $conn;
     }
     
     //执行查询数据方法
@@ -79,7 +80,7 @@
             mysqli_free_result($result);
         } 
         //关闭连接
-        mysqli_close($conn);   
+        mysqli_close($conn); 
         return $jsonData;
     }
 
@@ -100,7 +101,7 @@
     //insert into, update, delete // 返回一个布尔值，true|false，不用释放
     // $insert = "insert into dk(name) values('" . $_POST["name"] . "')";
 
-    // excute($insert);
-    // query($sql);
+    //excute($insert);
+    //query($sql);
 
 ?>

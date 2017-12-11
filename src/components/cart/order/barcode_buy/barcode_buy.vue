@@ -74,6 +74,7 @@
           order:function(){
             this.$router.push({path:"/order"})
           }
+          //点击改变
         },
         computed:{
 
@@ -90,10 +91,14 @@
             this.$parent.initToolbar(this.toolbar);
             axios({
                 url:'http://localhost:777/php/cart.php',
+
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
                 }
+
             }).then(res => {
+
+    
                  this.dataset = JSON.parse(res.data[res.data.length-1].orderDetail);
                  //这里太气人了！！！
                  console.log(this.dataset)

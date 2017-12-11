@@ -1,7 +1,6 @@
 <template>
 
     <div class="content">
-       
         <div class="list-block">
             <ul>
                 <li>
@@ -9,7 +8,7 @@
                         <div class="item-inner">
                             <div class="item-title label">商品条码</div>
                             <div class="item-input">
-                              <input type="text" placeholder="请扫描商品条码" v-model="barcode" id="barcode">
+                              <input type="text" v-model="barcode" id="barcode" @keyup="keyup">
                             </div>
                         </div>
                     </div>
@@ -37,6 +36,11 @@
         methods: {
             login:function(){
                 this.$router.push({path:'/login'}) 
+            },
+            keyup:function(e){
+                if(e.keyCode==13){
+                    console.log(66)
+                }
             }
         },
         mounted:function(){
@@ -46,26 +50,7 @@
 
             var $this=this
             if($.cookie('token')){
-               this.token=$.cookie('token'); 
-               jwt.verify(this.token,'abc',function(error,result){
 
-                    axios({
-                            url: 'http://localhost:777/php/login.php',
-                            method: 'post',
-                            data: qs.stringify({username:result.username}),
-                            headers: {
-                                'Content-Type': 'application/x-www-form-urlencoded'
-                            }
-                    }).then(res => {
-                                
-                                    if(res.data=="ok"){
-                                        console.log(res.data);
-                                    }else{
-                                       
-                                        $this.$router.push({path:'/login'}); 
-                                    }
-                            });
-                });
             }else{
                this.$router.push({path:'/login'}); 
             } 
