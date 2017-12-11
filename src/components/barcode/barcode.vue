@@ -9,7 +9,7 @@
                         <div class="item-inner">
                             <div class="item-title label">商品条码</div>
                             <div class="item-input">
-                              <input type="text" placeholder="请扫描商品条码" v-model="username">
+                              <input type="text" placeholder="请扫描商品条码" v-model="barcode">
                             </div>
                         </div>
                     </div>
@@ -32,7 +32,7 @@
             return {
                 toolbar:null,
                 token:'',
-                v-model:''
+                barcode:''
             }
         },
         methods: {
