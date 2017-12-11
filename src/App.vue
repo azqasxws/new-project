@@ -10,8 +10,8 @@
                   </a>
                   <h1 class="title">{{toolbar}}</h1>                  
                 </header>
-1
                 <nav class="bar bar-tab" v-if="unShows.indexOf(toolbar)<0">
+
                   <a class="tab-item active" @click="home">
                     <span class="icon icon-home"></span>
                     <span class="tab-label">首页</span>
