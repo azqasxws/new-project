@@ -3,7 +3,7 @@
     <div class="content">
       <div style="background:#fff">
         <span>用户</span><br />
-        <i>{{name}}</i>
+        <i id="name"></i>
       </div>
 
       <div class="list-block" style="margin-top:10px;">
@@ -63,7 +63,7 @@
         data(){
             return{
               toolbar:'我的',
-              name:'',
+              
               token:''
             }
         },
@@ -89,21 +89,19 @@
         },
         mounted:function(){
             this.$parent.initToolbar(this.toolbar);
-        },
-        beforeCreate:function(){    
             if($.cookie('token')){
                this.token=$.cookie('token'); 
                jwt.verify(this.token,'abc',function(error,result){
-                 name=result.username;
-                 console.log(name);
-                 console.log(result.username);
                 
+                
+                 console.log(result.username);
+                $('#name').html(result.username)
                 });           
             }else{
-               this.$router.push({path:'/login'}); 
+              $('#name').html('登录优惠更多');
             }
-                
         }
+
 
     }
 

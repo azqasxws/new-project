@@ -59,6 +59,13 @@
               toolbar:'设置'
             }
         },
+        methods:{
+          mine:function(){
+            this.$router.push({path:'/mine'});
+
+
+          }
+        },
         mounted:function(){
             this.$parent.initToolbar(this.toolbar);
         },
@@ -66,6 +73,7 @@
             exit(){
                 if(confirm("确认退出?")){
                     $.cookie("token1",null);
+                    this.mine();
                 }else{
                     return
                 }

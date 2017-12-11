@@ -75,7 +75,7 @@
                   var password=$('#Oldpassword').val();
                   // console.log(password);
                   axios({
-                      url: 'http://10.3.135.29:777/php/login.php',
+                      url: 'http://localhost:777/php/login.php',
                       method: 'post',
                       data: qs.stringify({username:username,password:password}),
                       headers: {
@@ -92,7 +92,7 @@
                             alert('密码不能和原密码一样');
                           }else if($pas1===$pas2){
                                 axios({
-                                    url: 'http://10.3.135.29:777/php/changePwd.php',
+                                    url: 'http://localhost:777/php/changePwd.php',
                                     method: 'post',
                                     data: qs.stringify({username:username,password:$pas1}),
                                     headers: {

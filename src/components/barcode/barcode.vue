@@ -22,7 +22,7 @@
                this.token=$.cookie('token'); 
                jwt.verify(this.token,'abc',function(error,result){
                     axios({
-                            url: 'http://10.3.135.29:777/php/barcode.php',
+                            url: 'http://localhost:777/php/barcode.php',
                             method: 'post',
                             data: qs.stringify({username:result.username}),
                             headers: {

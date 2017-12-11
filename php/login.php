@@ -3,24 +3,9 @@
  * @Author: Marte
  * @Date:   2017-11-16 20:36:53
  * @Last Modified by:   Marte
- * @Last Modified time: 2017-12-09 17:41:04
+ * @Last Modified time: 2017-12-10 23:06:29
  */
-    header('Access-Control-Allow-Origin:*');
-    $servername='10.3.135.29';
-    $username='root';
-    $password='';
-    $database='mydatabase';
-
-    //连接注册登录数据库
-    $conn=new mysqli($servername,$username,$password,$database);
-
-    //检测连接
-    if($conn->connect_error){
-        die('连接失败'.$conn->connect_error);
-    }
-
-    //设置编码
-    $conn->set_charset('utf8');    
+    include "public.php";   
 
     // 接受前端数据
     $username = isset($_POST['username']) ? $_POST['username'] : '';
