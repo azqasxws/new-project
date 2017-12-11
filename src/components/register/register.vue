@@ -59,9 +59,11 @@
 
         </ul>
       </div>
+      <spinner v-show="spShow"></spinner>
     </div>
 </template>    
 <script type="text/javascript">
+    import spinner from '../spinner/spinner.vue'
     import axios from 'axios';
     import qs from 'qs';
     import jwt from 'jsonwebtoken';
@@ -73,11 +75,13 @@
                 authCode:'',             
                 password:'',
                 password2:'',
-                token:''
+                token:'',
+                spShow: false
             }
         },
         methods:{
             login : function(){
+              console.log(66)
                 this.$router.push({path: '/login'})
             },
             home:function(){
@@ -91,6 +95,7 @@
               }else  if(this.password==''||this.password2==''){
                 alert('请输入密码');
               }else  if(this.password===this.password2){
+                spShow: true,
                 axios({
                     url: 'http://localhost:777/php/register.php',
                     method: 'post',
@@ -99,10 +104,11 @@
                         'Content-Type': 'application/x-www-form-urlencoded'
                     }
                 }).then(res => {
-                  if(res.data){
+                  spShow: false
+                  console.log(res.data)
+                  if(res.data!='ok'){
                     alert('用户名已注册');
                   }else{
-                      
                       this.token = jwt.sign({username:this.username}, 'abc', {
                             expiresIn:86400
                             }
@@ -119,6 +125,9 @@
         },
         mounted:function(){
             this.$parent.initToolbar(this.toolbar);
+        },
+        components: {
+            spinner: spinner
         }
     }
 </script>

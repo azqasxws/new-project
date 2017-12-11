@@ -1,3 +1,4 @@
+p
 <template>
     <div>
         <div class="dk-spinner-mask"></div>
@@ -10,6 +11,7 @@
 </template>
 
 <script>
+
     import './spinner.scss'
     export default{}
 </script>
