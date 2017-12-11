@@ -22,7 +22,7 @@
             </li>
             <li class="item-content" @click="share">
               <div class="item-inner">
-                <div class="item-title"><span class="icon icon-share"></span> 分享给好友</div>
+                <div class="item-title"><span class="icon icon-share"></span> 分享给 好友</div>
                 <span class="icon icon-right"></span>
               </div>
             </li>
