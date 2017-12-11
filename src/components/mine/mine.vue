@@ -92,9 +92,6 @@
             if($.cookie('token')){
                this.token=$.cookie('token'); 
                jwt.verify(this.token,'abc',function(error,result){
-                
-                
-                 console.log(result.username);
                 $('#name').html(result.username)
                 });           
             }else{
