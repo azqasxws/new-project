@@ -62,9 +62,7 @@
       methods:{
             changePwd:function(){
                 this.token=$.cookie('token'); 
-                // this.num = hex_md5(this.Oldpassword);
-                // console.log(this.Oldpassword);
-                // console.log(this.num);
+
                 jwt.verify(this.token,'abc',function(error,result){
                   var username=result.username;
                   // console.log(username);

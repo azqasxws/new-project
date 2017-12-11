@@ -39,7 +39,32 @@
             },
             keyup:function(e){
                 if(e.keyCode==13){
-                    console.log(66)
+                 axios({
+                    url: 'http://localhost:777/php/searchgood.php',
+                    method: 'post',
+                    data: qs.stringify({barcode:this.barcode}),
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    }
+                }).then(res => {             
+                    if(res.data=="ok"){ 
+                        this.token=$.cookie('token'); 
+                        jwt.verify(this.token,'abc',function(error,result){
+                            var username=result.username;
+                            console.log(username);
+                            axios({
+                                url: 'http://localhost:777/php/searchorder.php',
+                                method: 'post',
+                                data: qs.stringify({username:username}),
+                                headers: {
+                                'Content-Type': 'application/x-www-form-urlencoded'
+                                }
+                            }).then(res => {
+                                console.log(res.data);
+                            });                
+                         });
+                    }
+                });                   
                 }
             }
         },
@@ -50,7 +75,7 @@
 
             var $this=this
             if($.cookie('token')){
-
+                $(document).ready(function(){$("#barcode").focus();});
             }else{
                this.$router.push({path:'/login'}); 
             } 
