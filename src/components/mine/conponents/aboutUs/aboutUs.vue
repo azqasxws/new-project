@@ -1,8 +1,6 @@
 <template>
     <div class="content">
-        <div class="content-block">
-            <p><a href="#" class="button button-fill button-warning " @click="mine">返回</a></p>
-        </div>
+        
     </div>
 </template>
 
@@ -11,16 +9,12 @@
     export default{
         data(){
             return{
-              toolbar:'关于我们'
-            }
-        },
-        methods:{
-            mine : function(){
-                  this.$router.push({path:'/mine'}) 
+              toolbar:'关于我们',
+              backrouter:'/mine'
             }
         },
         mounted:function(){
-            this.$parent.initToolbar(this.toolbar);
+            this.$parent.initToolbar(this.toolbar,this.backrouter);
         }
     }
 

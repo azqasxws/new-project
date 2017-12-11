@@ -1,6 +1,9 @@
 <template>
-    <div class="content">
-        
+    <div class="content list-block">
+
+        <div class="item-input">
+            <input type="text" placeholder="Your name">
+        </div>
     </div>
 </template>
 <script type="text/javascript">
@@ -15,7 +18,7 @@
         },
         methods: {
             login:function(){
-                  this.$router.push({path:'/login'}) 
+                this.$router.push({path:'/login'}) 
             }
         },
         beforeCreate:function(){
@@ -43,8 +46,7 @@
                 });
             }else{
                this.$router.push({path:'/login'}); 
-            }
-                
+            } 
         }
 
     }

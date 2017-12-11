@@ -4,6 +4,10 @@
         <div class="page page-current">
         <!-- 你的html代码 -->
                 <header class="bar bar-nav">
+                  <a class="button button-link button-nav pull-left back" v-if='unShows.indexOf(toolbar)>0' @click="back">
+                  <span class="icon icon-left" ></span>
+                  返回
+                  </a>
                   <h1 class="title">{{toolbar}}</h1>                  
                 </header>
 1
@@ -45,8 +49,8 @@ export default {
   data () {
     return {
       toolbar:null,
-      unShows:['登录','电子发票','分享给好友','用户反馈','优惠券','关于我们','设置']
-
+      unShows:['登录','电子发票','分享给好友','用户反馈','优惠券','关于我们','设置','修改密码','常见问题'],
+      backrouter:null
     }
   },
   methods:{
@@ -63,8 +67,12 @@ export default {
         barcode:function(){
               this.$router.push({path:'/barcode'}) 
         },
-        initToolbar:function(_config){
+        back:function(){
+          this.$router.push({path:this.backrouter})
+        },
+        initToolbar:function(_config,_backrouter){
           this.toolbar = _config;
+          this.backrouter = _backrouter;
         }
   },
   // beforeUpdate:function(){

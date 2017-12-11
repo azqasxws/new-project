@@ -50,7 +50,7 @@
         },
         methods:{
             login:function(){
-              if(!password){
+              if(!this.password){
                 return;
               }
                 axios({

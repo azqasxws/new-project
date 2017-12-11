@@ -40,9 +40,7 @@
                 </li>
             </ul>
         </div>
-        <div class="content-block">
-            <p><a href="#" class="button button-fill button-warning " @click="setting">返回</a></p>
-        </div>         
+                
     </div>
 </template>
 <script type="text/javascript">
@@ -56,14 +54,12 @@
           Newpassword1:'',
           Newpassword2:'',
           token:'',
-          num:''
-       
+          num:'',
+          toolbar:'修改密码',
+          backrouter:'setting'
         }
       },
       methods:{
-            setting:function(){
-                this.$router.push({path: '/setting'})
-            },
             changePwd:function(){
                 this.token=$.cookie('token'); 
                 // this.num = hex_md5(this.Oldpassword);
@@ -113,6 +109,9 @@
                 // 
             }
 
+      },
+      mounted:function(){
+          this.$parent.initToolbar(this.toolbar,this.backrouter);
       }
 
     }

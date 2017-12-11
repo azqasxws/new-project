@@ -63,10 +63,7 @@
                 </div>
             </li>
           </ul>
-        </div>
-        <div class="content-block">
-            <p><a href="#" class="button button-fill button-warning " @click="setting">返回</a></p>
-        </div>         
+        </div>        
     </div>
 </template>
 <script type="text/javascript">
@@ -87,13 +84,12 @@
     export default{
       data(){
         return {
-
+            toolbar:'常见问题',
+            backrouter:'setting'
         }
       },
-      methods:{
-            setting(){
-                this.$router.push({path: '/setting'})
-            },
+      mounted:function(){
+          this.$parent.initToolbar(this.toolbar,this.backrouter);
       }
 
     }    
