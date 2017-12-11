@@ -1,20 +1,39 @@
 <template>
-    <div class="content list-block">
 
-        <div class="item-input">
-            <input type="text" placeholder="Your name">
-        </div>
+    <div class="content">
+       
+        <div class="list-block">
+            <ul>
+                <li>
+                    <div class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title label">商品条码</div>
+                            <div class="item-input">
+                              <input type="text" placeholder="请扫描商品条码" v-model="username">
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>   
+            
+
     </div>
 </template>
+
 <script type="text/javascript">
+
     import axios from 'axios';
     import qs from 'qs';
     import jwt from 'jsonwebtoken';
     
     export default{
         data:function(){
-            return {toolbar:null,
-            token:''}
+            return {
+                toolbar:null,
+                token:'',
+                v-model:''
+            }
         },
         methods: {
             login:function(){
@@ -49,5 +68,5 @@
             } 
         }
 
-    }
+}
 </script>

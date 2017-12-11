@@ -58,13 +58,22 @@
               backrouter:'/mine'
             }
         },
+        methods:{
+          mine:function(){
+            this.$router.push({path:'/mine'});
+
+
+          }
+        },
         mounted:function(){
             this.$parent.initToolbar(this.toolbar,this.backrouter);
         },
         methods:{
             exit(){
                 if(confirm("确认退出?")){
-                    $.cookie("token",null);
+                    $.cookie("token",'',{ path: "/", expiress:-1});
+                     this.$router.push({path:'/mine'});
+
                 }else{
                     return
                 }
