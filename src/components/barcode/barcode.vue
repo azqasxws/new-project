@@ -14,12 +14,13 @@
                     </div>
                 </li>
             </ul>
-        </div>  
+        </div>
+        <spinner v-show="spShow"></spinner>  
     </div>
 </template>
 
 <script type="text/javascript">
-
+    import spinner from '../spinner/spinner.vue'
     import axios from 'axios';
     import qs from 'qs';
     import jwt from 'jsonwebtoken';
@@ -30,7 +31,8 @@
                 toolbar:'扫描',
                 backrouter:'/home',
                 token:'',
-                barcode:''
+                barcode:'',
+                spShow:false
             }
         },
         methods: {
@@ -38,8 +40,11 @@
                 this.$router.push({path:'/login'}) 
             },
             keyup:function(e){
+                
                 if(e.keyCode==13){
-                 axios({
+                var $this=this
+                this.spShow=true
+                axios({
                     url: 'http://localhost:777/php/searchgood.php',
                     method: 'post',
                     data: qs.stringify({barcode:this.barcode}),
@@ -47,11 +52,10 @@
                         'Content-Type': 'application/x-www-form-urlencoded'
                     }
                 }).then(res => {             
-                    if(res.data=="ok"){ 
+                    if(res.data!="fail"){ 
                         this.token=$.cookie('token'); 
                         jwt.verify(this.token,'abc',function(error,result){
                             var username=result.username;
-                            console.log(username);
                             axios({
                                 url: 'http://localhost:777/php/searchorder.php',
                                 method: 'post',
@@ -60,9 +64,13 @@
                                 'Content-Type': 'application/x-www-form-urlencoded'
                                 }
                             }).then(res => {
-                                console.log(res.data);
+                                $this.spShow=false;
+                                var data = res.data;
+                                console.log(data)
                             });                
                          });
+                    }else{
+                        $this.spShow=false;
                     }
                 });                   
                 }
@@ -79,6 +87,9 @@
             }else{
                this.$router.push({path:'/login'}); 
             } 
+        },
+        components: {
+            spinner: spinner
         }
     }
     

@@ -15,8 +15,8 @@
 
     // 获取查询结果
     $result = $conn->query($sql);
-
-    $row = $result->fetch_row();
+    // 使用查询结果集
+    $row = $result->fetch_all(MYSQLI_ASSOC);
 
     if($row){
         echo json_encode($row, JSON_UNESCAPED_UNICODE);
